@@ -152,3 +152,17 @@ Matrix matrix_multiply(Matrix a, Matrix b) {
     
     return result;
 }
+
+Matrix matrix_add_scalar(Matrix m, double value) {
+    // Создаем результирующую матрицу тех же размеров
+    Matrix result = create_matrix(m.rows, m.cols);
+    
+    // Добавляем скаляр к каждому элементу
+    for (int i = 0; i < m.rows; i++) {
+        for (int j = 0; j < m.cols; j++) {
+            result.data[i][j] = m.data[i][j] + value;
+        }
+    }
+    
+    return result;
+}

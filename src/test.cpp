@@ -33,10 +33,32 @@ void test_invalid_addition() {
     }
 }
 
+void test_matrix_add_scalar() {
+    std::cout << "Testing scalar addition..." << std::endl;
+    
+    Matrix A = create_matrix(2, 2);
+    A.data[0][0] = 1; A.data[0][1] = 2;
+    A.data[1][0] = 3; A.data[1][1] = 4;
+    
+    Matrix result = matrix_add_scalar(A, 10);
+    
+    assert(result.data[0][0] == 11);  // 1 + 10
+    assert(result.data[0][1] == 12);  // 2 + 10
+    assert(result.data[1][0] == 13);  // 3 + 10
+    assert(result.data[1][1] == 14);  // 4 + 10
+    
+    free_matrix(A);
+    free_matrix(result);
+    
+    std::cout << "Scalar addition test passed!" << std::endl;
+}
+
+
 // Добавьте это в конец файла test.cpp
 int main() {
     test_matrix_addition();
     test_invalid_addition();
+    test_matrix_add_scalar();
     std::cout << "All tests passed!" << std::endl;
     return 0;
 }

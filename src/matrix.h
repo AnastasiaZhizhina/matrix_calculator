@@ -35,4 +35,13 @@ Matrix matrix_from_array(double* data, int rows, int cols);
  */
 Matrix matrix_multiply(Matrix a, Matrix b);
 
+/**
+ * @brief Добавляет скаляр к каждому элементу матрицы
+ * 
+ * @param m Исходная матрица
+ * @param value Скалярное значение для добавления
+ * @return Matrix Новая матрица с результатом
+ */
+Matrix matrix_add_scalar(Matrix m, double value);
+
 #endif
